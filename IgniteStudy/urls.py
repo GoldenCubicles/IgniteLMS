@@ -23,10 +23,11 @@ from django.conf import settings
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("",index,name="index"),
-    path('admin_home', admin_home, name='admin_home'),
+    path('manager_home', manager_home, name='manager_home'),
     path('teacher_home', teacher_home, name='teacher_home'),
     path('teacher_login', teacher_login, name='teacher_login'),
-    path('admim_superadmin_login', admim_superadmin_login, name='admim_superadmin_login'),
+    path('manager_superadmin_login', manager_superadmin_login, name='manager_superadmin_login'),
     path('student_login', student_login, name='student_login'),
     path('student_home', student_home, name='student_home'),
+    path('superuser_home', superuser_home, name='superuser_home'),
 ]
