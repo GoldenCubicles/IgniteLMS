@@ -1,0 +1,50 @@
+nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #2796e6;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">ILMS</a>
+        <a class="navbar-brand" href="#">IgniteLMS</a>
+        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+        aria-expanded="false" aria-label="Toggle navigation"></button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            
+            
+            {% if user.is_authenticated %}
+            {% if user.username == 'admin' %}
+            <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+               
+                <li class="nav-item">
+                    <a class="nav-link active" href="" aria-current="page">Download Dataset <span class="visually-hidden">(current)</span></a>
+                </li>
+            </ul>
+            {% else %}
+            <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+                
+                
+                    <li class="nav-item">
+                        <a class="nav-link active" href="" aria-current="page"> FeedBack <span class="visually-hidden">(current)</span></a>
+                    </li>
+                </ul>
+            {% endif %}
+            <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" href="" aria-current="page"><i class="fa-solid fa-person-walking-dashed-line-arrow-right"></i> logout <span class="visually-hidden">(current)</span></a>
+                </li>
+            </ul>
+            {% else %}
+            <center>
+
+                <ul class="nav nav-pills" style="margin-left: 20rem; color:black">
+                    <li class="nav-item"><a href="#" class="nav-link text-dark">FAQs</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-dark">About</a></li>
+                </ul>
+            </center>
+            <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="" aria-current="page"> <i class="fa-solid fa-right-to-bracket"></i>Login <span class="visually-hidden">(current)</span></a>
+                </li>
+                
+            </ul>
+            {% endif %}
+
+        </div>
+    </div>
+</nav>
