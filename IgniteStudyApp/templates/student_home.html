@@ -1,12 +1,114 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Student home </h1>
-    
-</body>
-</html>
+{% extends 'layout/base.html' %}
+
+{% block css %}
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+    body {
+        font-family: 'Poppins', sans-serif;
+    }
+
+    @keyframes bounceEffect {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-5px); }
+    }
+
+    .hover\:bounce:hover {
+        animation: bounceEffect 0.3s ease-in-out;
+    }
+
+    .search-bar {
+        transition: all 0.3s ease-in-out;
+    }
+
+    .search-bar:focus {
+        width: 300px;
+        background-color: #f0f0f0;
+        outline: none;
+        border: 2px solid #00A6FF;
+    }
+
+    .nav-item {
+        transition: all 0.3s ease-in-out;
+        background-color: rgba(217, 217, 217, 0.4);
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .nav-item:hover {
+        transform: scale(1.05);
+        background-color: rgba(217, 217, 217, 0.6);
+    }
+
+    .nav-item:active, .nav-item.active {
+        background-color: rgba(0, 166, 255, 1);
+        color: white;
+    }
+    </style>
+    /* CSS */
+{% endblock %}
+{% block content %}
+
+<body class="bg-gray-100">
+    <div class="flex flex-col h-screen">
+        <header class="flex items-center justify-between bg-white p-4 shadow-md">
+            <div class="flex items-center">
+                <img src="https://placehold.co/100x50" alt="Company Logo" class="h-10 w-auto">
+                <div class="ml-4 relative">
+                    <input type="text" placeholder="Search..." class="border rounded-full py-2 px-4 pl-10 w-64 search-bar">
+                    <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <i class="fas fa-heart text-gray-600"></i>
+                <i class="fas fa-bell text-gray-600"></i>
+                <i class="fas fa-envelope text-gray-600"></i>
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-user text-gray-600"></i>
+                    <span>student1</span>
+                </div>
+            </div>
+        </header>
+        <div class="flex flex-1">
+            <aside class="w-64 bg-gray-200 p-4">
+                <nav class="space-y-4">
+                    <a href="#" class="block text-black font-semibold nav-item">Home</a>
+                    <a href="#" class="block text-black nav-item">Classroom</a>
+                    <a href="#" class="block text-black nav-item">Dashboard</a>
+                    <a href="#" class="block text-black nav-item">Resources</a>
+                    <a href="#" class="block text-black nav-item">Assignment</a>
+                    <a href="#" class="block text-black nav-item">Schedule</a>
+                </nav>
+            </aside>
+            <main class="flex-1 p-8">
+                <h1 class="text-2xl font-bold text-blue-500 mb-8">My Course</h1>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-4 rounded-lg shadow-md hover:bounce">
+                        <img src="https://placehold.co/150x150" alt="AI Course Image" class="mx-auto">
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-md hover:bounce">
+                        <img src="https://placehold.co/150x150" alt="Database Course Image" class="mx-auto">
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-md hover:bounce">
+                        <img src="https://placehold.co/150x150" alt="Machine Learning Course Image" class="mx-auto">
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-md hover:bounce">
+                        <img src="https://placehold.co/150x150" alt="UX Course Image" class="mx-auto">
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-md hover:bounce">
+                        <img src="https://placehold.co/150x150" alt="Computer Lab Course Image" class="mx-auto">
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-md hover:bounce">
+                        <img src="https://placehold.co/150x150" alt="Computer Lab Course Image" class="mx-auto">
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <!-- Content -->
+{% endblock %}
+{% block js %}
+    <!-- Js -->
+{% endblock %}
