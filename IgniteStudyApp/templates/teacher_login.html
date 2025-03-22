@@ -1,39 +1,64 @@
+{% extends 'layout/base.html' %}
+
+{% block css %}
+
+<style>
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+        40% { transform: translateY(-10px); }
+        60% { transform: translateY(-5px); }
+    }
+    
+    .fade-in { animation: fadeIn 1s ease-in-out; }
+    .hover\:bounce:hover { animation: bounce 1s; }
+    .hover\:shadow-lg:hover { box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2); }
+</style>
+{% endblock %}
+{% block content %}
 <!DOCTYPE html>
-<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+   
+    <title>Login Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    
 </head>
-<body>
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-header text-center">
-                        <h4>Login</h4>
-                    </div>
-                    <div class="card-body">
-                        {% if messages %}
-                        <div class="alert alert-danger">
-                            {% for message in messages %} 
-                                {{ message }}
-                            {% endfor %}
+<body class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div class="container mx-auto p-4 fade-in">
+        <div class="flex flex-col md:flex-row items-center justify-center bg-white shadow-lg rounded-lg p-6 hover:shadow-lg">
+            <div class="md:w-1/2 flex flex-col items-center hover:bounce">
+                <img src="https://placehold.co/300x300" alt="Illustration" class="mb-4">
+                <h1 class="text-2xl font-bold">WELCOME TO ..........</h1>
+            </div>
+            <div class="md:w-1/2 mt-6 md:mt-0 md:ml-6">
+                <h2 class="text-xl font-bold text-center mb-4">Teacher LOGIN TO CONTINUE</h2>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg">
+                    <h3 class="text-2xl font-bold text-blue-500 text-center mb-4">LOGIN</h3>
+                    <form>
+                        <div class="mb-4 hover:shadow-lg p-2 rounded-lg">
+                            <label class="block text-gray-700">Email</label>
+                            <input type="email" placeholder="Enter Your Email" class="w-full px-3 py-2 border rounded-lg">
                         </div>
-                        {% endif %}
-                        <form method="POST">
-                            {% csrf_token %}
-                            <div class="mb-3">
-                                <label for="uname" class="form-label">Username</label>
-                                <input type="text" class="form-control" id="email" name="email" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="pswd" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password" name="password" required>
-                            </div>
-                            <button type="submit" class="btn btn-primary w-100">Login</button>
-                        </form>
+                        <div class="mb-4 hover:shadow-lg p-2 rounded-lg">
+                            <label class="block text-gray-700">Password</label>
+                            <input type="password" placeholder="Enter Your Password" class="w-full px-3 py-2 border rounded-lg">
+                        </div>
+                        <button type="submit" class="w-full bg-gray-200 text-black py-2 rounded-lg font-bold hover:bounce hover:shadow-lg">Log in</button>
+                    </form>
+                    <p class="text-center text-gray-600 mt-4">If you haven't registered yet? <a href="#" class="text-blue-500">Register Now</a></p>
+                    <div class="mt-4">
+                        <button class="w-full bg-blue-500 text-white py-2 rounded-lg flex items-center justify-center mb-2 hover:bounce hover:shadow-lg">
+                            <i class="fab fa-google mr-2"></i> Continue with Google
+                        </button>
+                        <button class="w-full bg-blue-700 text-white py-2 rounded-lg flex items-center justify-center hover:bounce hover:shadow-lg">
+                            <i class="fab fa-facebook-f mr-2"></i> Continue with Facebook
+                        </button>
                     </div>
                 </div>
             </div>
@@ -41,3 +66,8 @@
     </div>
 </body>
 </html>
+
+{% endblock %}
+{% block js %}
+    <!-- Js -->
+{% endblock %}
